@@ -10,6 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 3871252664382126574}
   - component: {fileID: 3871252664382126575}
+  - component: {fileID: 729328515}
+  - component: {fileID: 729328516}
+  - component: {fileID: 729328517}
   m_Layer: 0
   m_Name: MainPlayer 1
   m_TagString: Untagged
@@ -45,13 +48,55 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cebbf3baf67eac4ba7f5a75b57df883, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  numberOfSpeed: 10
+  numberOfSpeed: 5
   xRange: 2
   yRange: 0.8
   positionPitchFactor: -5
   controlPitchFactor: -30
   positionYawFactor: 5
   controlRollFactor: 20
+--- !u!54 &729328515
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3871252664382126561}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!65 &729328516
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3871252664382126561}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.645557, y: 0.72706413, z: 0.5640956}
+  m_Center: {x: 0.0065638125, y: 0.04816532, z: 0.046955764}
+--- !u!114 &729328517
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3871252664382126561}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49b743540a6afc841986aa5bdf92daa5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelLoadDelay: 1
 --- !u!1001 &3871252664950675705
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -126,6 +171,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Bullets
+      objectReference: {fileID: 0}
+    - target: {fileID: 1141727049757441959, guid: 3b0f273b03ab23a42b4752a88152460c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1141727049757441952, guid: 3b0f273b03ab23a42b4752a88152460c,
         type: 3}

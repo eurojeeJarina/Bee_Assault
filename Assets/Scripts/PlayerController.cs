@@ -3,21 +3,25 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityStandardAssets.CrossPlatformInput;
 
-public class PlayerScript : MonoBehaviour
+public class PlayerController : MonoBehaviour
 {
+    // todo slow start speed
+
+    [Header("General")]
     [Tooltip("in ms/sec")][SerializeField] float numberOfSpeed = 4f;
     [Tooltip("x range")] [SerializeField] float xRange = 5;
     [Tooltip("y range")] [SerializeField] float yRange = 5;
 
+    [Header("Screen Position Based")]
     [SerializeField] float positionPitchFactor = -5f;
     [SerializeField] float controlPitchFactor = -30f;
 
+    [Header("Open Control Based")]
     [SerializeField] float positionYawFactor = 5f;
-
     [SerializeField] float controlRollFactor = 5f;
 
     float xThrow, yThrow;
-
+    bool isControlEnabled = true;
     // Start is called before the first frame update
     void Start()
     {
@@ -27,9 +31,18 @@ public class PlayerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        ProcessTranslation();
-        ProcessRotation();
+        if (isControlEnabled)
+        {
+            ProcessTranslation();
+            ProcessRotation();
+        }
     }
+
+    void OnPlayerDeath() // called by string reference
+    {
+        isControlEnabled = false;
+    }
+
 
     private void ProcessTranslation()
     {
